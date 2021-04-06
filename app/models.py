@@ -8,3 +8,6 @@ class Post(models.Model):
     content = models.CharField(max_length=200)
     date_posted = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.title
+
