@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from blog import views
+from blog.views import post_content
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<int:pk>', views.post_content, name="content")
+    path('<int:pk>',post_content, name="content")
 ]
