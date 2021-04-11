@@ -17,3 +17,11 @@ class TestViews:
         response = post_content(request, pk=1)
         assert response.status_code == 200
 
+    def test_post_detail_is_unauthenticated(self):
+        "Test if the user trying to access the view is unauthenticated"
+        mixer.blend('blog.Post')
+        path = reverse("content", kwargs={'pk':1})
+        request = RequestFactory().get(path)
+        request.user = AnonymousUser()
+        response = post_content(request, pk=1)
+        assert "accounts/login" in response.url
