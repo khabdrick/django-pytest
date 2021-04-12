@@ -8,6 +8,10 @@ class TestModels:
             author="Muhammed Ali",
             title="Simple article",
             content="This is my content",
+            date_posted="2021-04-12 12:12:11.343944+00:00"
+
         )
         assert post.author == "Muhammed Ali"
         assert post.title == "Simple article"
+        assert post.content == "This is my content"
+        assert post.date_posted == "2021-04-12 12:12:11.343944+00:00"
